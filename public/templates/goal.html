@@ -1,0 +1,11 @@
+    <div class="item" ng-class="{'editing-item': editing, 'edited': goal.edited, 'completed': goal.completed}" ng-repeat="goal in goals | orderBy: 'completed' " ng-init="goal.completed = false"
+>
+      <input type="checkbox" ng-model="goal.completed" />
+      <span ng-click="goal.completed = !goal.completed; goal.edited = true"></span>
+      <label ng-hide="editing" ng-click="editing=true">{{goal.name}}</label>
+      <input ng-show="editing" ng-blur="editing = false" class="editing-label" type="text" ng-model="goal.name" ng-change="goal.edited = true"/>
+      <div class="actions">
+        <a href="" ng-click="saveGoals()">Save</a>
+        <a href="" class="delete" ng-click="deleteGoal(goal, $index)">Delete</a>
+      </div>
+    </div>
