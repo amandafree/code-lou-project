@@ -2,9 +2,11 @@
 
 var angular = require('angular');
 
+//main controller
 angular.module('goalsApp')
 .controller('mainCtrl', function($scope, dataService){
 
+//get
   dataService.getGoals(function(response){
     var goals = response.data;
     $scope.goals =  goals;
