@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 
+//goal controller
 angular.module('goalsApp')
 .controller('goalCtrl', function($scope, dataService) {
   $scope.deleteGoal = function(goal, index) {
