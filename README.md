@@ -7,12 +7,11 @@ To run:
   4. npm install --save angular
   5. npm install --save body-parser
   6. npm install --save mongoose
-  7. npm install --save webpack
-  8. mongod
-  9. open a second tab
-  10. nodemon (or node src/app.js)
-  11. In a browser, go to http://localhost:3000
-  12. Add, edit, and delete goals as needed
+  7. mongod
+  8. open a second tab
+  9. nodemon (or node src/app.js)
+  10. In a browser, go to http://localhost:3000
+  11. Add, edit, and delete goals as needed
   
                      
               
