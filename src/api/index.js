@@ -6,13 +6,14 @@ var Goal = require('../models/goals');
 
 var router = express.Router();
 
+//router get goals
 router.get('/goals', function(req, res) {
 	Goal.find({}, function (err, goals) {
 		if(err) {
 			// do something
 			return res.status(500).json({message: err.message});
 		}
-		res.json({goals: goals});
+		res.json(goals);
 	});
 });
 

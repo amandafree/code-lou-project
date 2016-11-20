@@ -8,6 +8,7 @@ webpackJsonp([0],[
 
 	angular.module('goalsApp', []);
 
+	//require scripts for webpack
 	__webpack_require__(3);
 	__webpack_require__(4);
 	__webpack_require__(5);
@@ -24,14 +25,17 @@ webpackJsonp([0],[
 
 	var angular = __webpack_require__(1);
 
+	//main controller
 	angular.module('goalsApp')
 	.controller('mainCtrl', function($scope, dataService){
 
+	//get
 	  dataService.getGoals(function(response){
 	    var goals = response.data;
 	    $scope.goals =  goals;
 	    });
 
+	//add method
 	  $scope.addGoal = function() {
 	    $scope.goals.unshift({name: "This is a new goal.",
 	                      completed: false});
@@ -48,6 +52,7 @@ webpackJsonp([0],[
 
 	var angular = __webpack_require__(1);
 
+	//goal controller
 	angular.module('goalsApp')
 	.controller('goalCtrl', function($scope, dataService) {
 	  $scope.deleteGoal = function(goal, index) {
@@ -55,6 +60,7 @@ webpackJsonp([0],[
 	    dataService.deleteGoal(goal);
 	  };
 
+	//save method
 	  $scope.saveGoals = function() {
 	    var filteredGoals = $scope.goals.filter(function(goal){
 	      if(goal.edited) {
@@ -65,12 +71,14 @@ webpackJsonp([0],[
 	    .finally($scope.resetGoalState);
 	  };
 
+	//reset "edit" to false
 	  $scope.resetGoalState = function() {
 	    $scope.goals.forEach(function(goal) {
 	      goal.edited = false;
 	    });
 	  };
 
+	//delete method
 	  $scope.deleteGoal = function(goal, index) {
 	    dataService.deleteGoal(goal).then(function() {
 	      $scope.goals.splice(index, 1);
@@ -105,12 +113,14 @@ webpackJsonp([0],[
 
 	var angular = __webpack_require__(1);
 
+	//get mock goals
 	angular.module('goalsApp')
 	.service('dataService', function($http, $q) {
 	  this.getGoals = function(cb) {
-	    $http.get('/mock/goals.json').then(cb);
+	    $http.get('/mock/goals.goals').then(cb);
 	  };
 
+	//delete
 	  this.deleteGoal = function(goal) {
 	      if (!goal._id) {
 	          return $q.resolve();
@@ -120,6 +130,7 @@ webpackJsonp([0],[
 	      });
 	  };
 
+	//save
 	  this.saveGoals = function(goals) {
 	    var queue = [];
 	    goals.forEach(function(goal) {

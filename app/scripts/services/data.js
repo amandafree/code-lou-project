@@ -2,10 +2,11 @@
 
 var angular = require('angular');
 
+//get mock goals
 angular.module('goalsApp')
 .service('dataService', function($http, $q) {
   this.getGoals = function(cb) {
-    $http.get('/mock/goals.json').then(cb);
+    $http.get('/mock/goals.goals').then(cb);
   };
 
 //delete
