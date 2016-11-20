@@ -117,7 +117,7 @@ webpackJsonp([0],[
 	angular.module('goalsApp')
 	.service('dataService', function($http, $q) {
 	  this.getGoals = function(cb) {
-	    $http.get('/mock/goals.goals').then(cb);
+	    $http.get('/api/goals').then(cb);;
 	  };
 
 	//delete
